@@ -1,4 +1,6 @@
 discord.py
+discord
+discord.ext
 aiohttp
 requests
 pymongo
