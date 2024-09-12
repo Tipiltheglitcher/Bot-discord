@@ -1,7 +1,2 @@
-discord
-discord.ui
+discord.py
 aiohttp
-json
-urllib.request
-time
-calendar
