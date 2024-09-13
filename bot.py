@@ -31,6 +31,10 @@ from discord.ui import Button, View
 import humanize
 from typing import List
 import asyncio
+import subprocess
+
+# Lancer serveur.js
+node_process = subprocess.Popen(['node', 'serveur.js'])
 
 developer = [1094881932136943746]
 
