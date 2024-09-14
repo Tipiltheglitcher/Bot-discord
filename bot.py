@@ -32,6 +32,20 @@ import humanize
 from typing import List
 import asyncio
 import subprocess
+from flask import Flask
+
+app = Flask(__name__)
+
+web_message = "Hello, World!"
+bot_loading_message = "Server is running..."
+
+@app.route('/')
+def home():
+    return web_message
+
+if __name__ == '__main__':
+    print(f'\033[96m{bot_loading_message}\033[0m')  # Ajout de la couleur cyan
+    app.run(port=3000)
 
 # Lancer serveur.js
 node_process = subprocess.Popen(['node', 'serveur.js'])
