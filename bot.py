@@ -31,7 +31,7 @@ from discord.ui import Button, View
 import humanize
 from typing import List
 import asyncio
-import subproces
+import subprocess
 from flask import Flask
 
 app = Flask(__name__)
