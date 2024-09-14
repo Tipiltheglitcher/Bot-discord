@@ -38,7 +38,7 @@ import os
 app = Flask(__name__)
 
 # Utilisation de la variable d'environnement PORT ou 4000 par défaut
-port = int(os.getenv("PORT", 4000))
+port = int(os.getenv("PORT", 3000))
 
 @app.route('/')
 def home():
