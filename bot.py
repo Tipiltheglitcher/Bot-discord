@@ -887,5 +887,8 @@ async def website(interaction: discord.Interaction):
     )
     await interaction.response.send_message(embed=embed)
 
+if __name__ == '__main__':
+    start_webserver() 
+    
 bot.run(
     "MTIyNzYwNzg4NjQwNzEzOTM0OA.G0Zh96.en6weP8vYnH-eHduiPStgXeeOLIPm0qrKTS6nA")
