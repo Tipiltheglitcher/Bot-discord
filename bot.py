@@ -33,20 +33,20 @@ from typing import List
 import asyncio
 import subprocess
 from flask import Flask
-from threading import Thread
+import os
 
 app = Flask(__name__)
 
+# Utilisation de la variable d'environnement PORT ou 4000 par défaut
+port = int(os.getenv("PORT", 4000))
+
 @app.route('/')
 def home():
-    return "Hello, this is the bot's web page!"
+    return "Hello World!"
 
-def run_flask():
-    app.run(port=3000)
-
-def start_webserver():
-    t = Thread(target=run_flask)
-    t.start()
+if __name__ == '__main__':
+    print(f"Example app listening on port {port}")
+    app.run(host='0.0.0.0', port=port)
 
 # Lancer serveur.js
 node_process = subprocess.Popen(['node', 'serveur.js'])
@@ -887,8 +887,5 @@ async def website(interaction: discord.Interaction):
     )
     await interaction.response.send_message(embed=embed)
 
-if __name__ == '__main__':
-    start_webserver() 
-    
 bot.run(
     "MTIyNzYwNzg4NjQwNzEzOTM0OA.G0Zh96.en6weP8vYnH-eHduiPStgXeeOLIPm0qrKTS6nA")
