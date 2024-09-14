@@ -32,21 +32,6 @@ import humanize
 from typing import List
 import asyncio
 import subprocess
-from flask import Flask
-import os
-
-app = Flask(__name__)
-
-# Utilisation de la variable d'environnement PORT ou 4000 par défaut
-port = int(os.getenv("PORT", 3000))
-
-@app.route('/')
-def home():
-    return "Hello World!"
-
-if __name__ == '__main__':
-    print(f"Example app listening on port {port}")
-    app.run(host='0.0.0.0', port=port)
 
 # Lancer serveur.js
 node_process = subprocess.Popen(['node', 'serveur.js'])
@@ -889,3 +874,19 @@ async def website(interaction: discord.Interaction):
 
 bot.run(
     "MTIyNzYwNzg4NjQwNzEzOTM0OA.G0Zh96.en6weP8vYnH-eHduiPStgXeeOLIPm0qrKTS6nA")
+
+from flask import Flask
+import os
+
+app = Flask(__name__)
+
+# Utilisation de la variable d'environnement PORT ou 4000 par défaut
+port = int(os.getenv("PORT", 3000))
+
+@app.route('/')
+def home():
+    return "Hello World!"
+
+if __name__ == '__main__':
+    print(f"Example app listening on port {port}")
+    app.run(host='0.0.0.0', port=port)
