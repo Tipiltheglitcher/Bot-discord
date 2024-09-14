@@ -33,19 +33,20 @@ from typing import List
 import asyncio
 import subprocess
 from flask import Flask
+from threading import Thread
 
 app = Flask(__name__)
 
-web_message = "Hello, World!"
-bot_loading_message = "Server is running..."
-
 @app.route('/')
 def home():
-    return web_message
+    return "Hello, this is the bot's web page!"
 
-if __name__ == '__main__':
-    print(f'\033[96m{bot_loading_message}\033[0m')  # Ajout de la couleur cyan
+def run_flask():
     app.run(port=3000)
+
+def start_webserver():
+    t = Thread(target=run_flask)
+    t.start()
 
 # Lancer serveur.js
 node_process = subprocess.Popen(['node', 'serveur.js'])
