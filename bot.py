@@ -31,7 +31,20 @@ from discord.ui import Button, View
 import humanize
 from typing import List
 import asyncio
-import subprocess
+import subproces
+from flask import Flask
+
+app = Flask(__name__)
+
+# Route de base pour le serveur Flask
+@app.route('/')
+def home():
+    return "Bot Discord is running!"
+
+# Fonction pour démarrer le serveur Flask
+def run_flask():
+    port = int(os.getenv("PORT", 4000))  # Port configurable via variable d'environnement
+    app.run(host='0.0.0.0', port=port)
 
 # Lancer serveur.js
 node_process = subprocess.Popen(['node', 'serveur.js'])
@@ -872,21 +885,7 @@ async def website(interaction: discord.Interaction):
     )
     await interaction.response.send_message(embed=embed)
 
+if __name__ == '__main__':
+    start_webserver()  # Lancer le serveur Flask en arrière-plan
 bot.run(
     "MTIyNzYwNzg4NjQwNzEzOTM0OA.G0Zh96.en6weP8vYnH-eHduiPStgXeeOLIPm0qrKTS6nA")
-
-from flask import Flask
-import os
-
-app = Flask(__name__)
-
-# Utilisation de la variable d'environnement PORT ou 4000 par défaut
-port = int(os.getenv("PORT", 3000))
-
-@app.route('/')
-def home():
-    return "Hello World!"
-
-if __name__ == '__main__':
-    print(f"Example app listening on port {port}")
-    app.run(host='0.0.0.0', port=port)
