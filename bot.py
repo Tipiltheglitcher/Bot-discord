@@ -33,8 +33,6 @@ from typing import List
 import asyncio
 import subprocess
 from keep_alive import keep_alive
-# Lancer serveur.js
-node_process = subprocess.Popen(['node', 'serveur.js'])
 
 developer = [1094881932136943746]
 
