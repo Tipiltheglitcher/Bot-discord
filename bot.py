@@ -1,4 +1,4 @@
-import discord
+mport discord
 from discord import app_commands
 from discord import embeds
 from discord import interactions
